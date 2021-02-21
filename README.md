@@ -1,3 +1,3 @@
 # J.W_Fin
 
-### Quant strategy and study
+### Quant study for finance
