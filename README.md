@@ -1,3 +1,3 @@
-# J.W_Fin
+# J.W_Capital
 
 ### Quant study for finance
