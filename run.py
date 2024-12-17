@@ -14,61 +14,67 @@ HTML = '''
            font-family: 'Inter', sans-serif;
        }
        .grid-bg {
-           background-size: 40px 40px;
+           background-size: 20px 20px;  /* 모바일에서는 더 작은 그리드 */
            background-image: 
                linear-gradient(to right, rgb(32, 32, 32) 1px, transparent 1px),
                linear-gradient(to bottom, rgb(32, 32, 32) 1px, transparent 1px);
        }
+       @media (min-width: 768px) {
+           .grid-bg {
+               background-size: 40px 40px;
+           }
+       }
    </style>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="bg-black min-h-screen grid-bg">
    <div class="relative">
        <!-- 네비게이션 -->
        <nav class="bg-black border-b border-gray-800">
-           <div class="container mx-auto px-6 py-4">
-               <div class="text-2xl font-bold text-white">
+           <div class="container mx-auto px-4 py-4 md:px-6">
+               <div class="text-xl md:text-2xl font-bold text-white">
                    JW Corp
                </div>
            </div>
        </nav>
 
        <!-- 메인 섹션 -->
-       <section class="container mx-auto px-6 py-24">
-           <div class="max-w-4xl">
-               <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+       <section class="container mx-auto px-4 py-12 md:px-6 md:py-24">
+           <div class="max-w-4xl mx-auto">
+               <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight">
                    AI-Powered<br/>Hedge Fund
                </h1>
-               <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl">
+               <p class="text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 md:mb-12 max-w-2xl">
                    Maximizing returns through advanced AI trading algorithms. Let your capital work smarter with JW Corp.
                </p>
 
                <!-- 투자 현황 -->
-               <div class="mt-16 bg-gray-900 rounded-xl p-8 border border-gray-800">
-                   <h2 class="text-xl font-bold mb-8 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 text-transparent bg-clip-text">
+               <div class="mt-8 md:mt-16 bg-gray-900 rounded-xl p-4 md:p-8 border border-gray-800">
+                   <h2 class="text-lg md:text-xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 text-transparent bg-clip-text">
                        Investment Status
                    </h2>
 
-                   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                       <div class="p-6 rounded-xl bg-black glow-border">
-                           <div class="text-gray-400">Initial Investment</div>
-                           <div class="text-2xl font-bold mt-2 text-white">₩2,000,000</div>
+                   <div class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+                       <div class="p-4 md:p-6 rounded-xl bg-black glow-border">
+                           <div class="text-sm md:text-base text-gray-400">Initial Investment</div>
+                           <div class="text-xl md:text-2xl font-bold mt-2 text-white">₩2,000,000</div>
                        </div>
 
-                       <div class="p-6 rounded-xl bg-black glow-border">
-                           <div class="text-gray-400">Current Value</div>
-                           <div class="text-2xl font-bold mt-2 text-white">₩2,093,975</div>
+                       <div class="p-4 md:p-6 rounded-xl bg-black glow-border">
+                           <div class="text-sm md:text-base text-gray-400">Current Value</div>
+                           <div class="text-xl md:text-2xl font-bold mt-2 text-white">₩2,093,975</div>
                        </div>
 
-                       <div class="p-6 rounded-xl bg-black glow-border">
-                           <div class="text-gray-400">Return</div>
-                           <div class="text-2xl font-bold mt-2 text-green-400">+4.70%</div>
+                       <div class="p-4 md:p-6 rounded-xl bg-black glow-border">
+                           <div class="text-sm md:text-base text-gray-400">Return</div>
+                           <div class="text-xl md:text-2xl font-bold mt-2 text-green-400">+4.70%</div>
                        </div>
                    </div>
 
-                   <div class="mt-8 p-6 rounded-xl bg-black border border-gray-800">
+                   <div class="mt-4 md:mt-8 p-4 md:p-6 rounded-xl bg-black border border-gray-800">
                        <div class="flex justify-between items-center">
-                           <div class="text-gray-400">AI Engine Status</div>
-                           <div class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">
+                           <div class="text-sm md:text-base text-gray-400">AI Engine Status</div>
+                           <div class="px-2 py-1 md:px-3 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 text-sm">
                                TESTING
                            </div>
                        </div>
@@ -80,7 +86,6 @@ HTML = '''
 </body>
 </html>
 '''
-
 
 @app.route('/')
 def home():
